@@ -1,6 +1,15 @@
 ﻿using ChessChallenge.API;
 using System;
 
+
+bool MoveIsCheckmate(Board board, Move move)
+{
+    board.MakeMove(move);
+    bool isMate = board.IsInCheckmate();
+    board.UndoMove(move);
+    return isMate;
+}
+
 public class MyBot : IChessBot
 {
     // Piece values: null, pawn, knight, bishop, rook, queen, king
@@ -47,3 +56,8 @@ public class MyBot : IChessBot
         return isMate;
     }
 }
+
+
+
+
+
