@@ -2,6 +2,7 @@
 
 public class MyBot : IChessBot
 {
+    // test ;)
     public Move Think(Board board, Timer timer)
     {
         Move[] moves = board.GetLegalMoves();
