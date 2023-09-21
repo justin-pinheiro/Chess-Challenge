@@ -4,7 +4,7 @@ using System;
 public class MyBot : IChessBot
 {
     // Piece values: null, pawn, knight, bishop, rook, queen, king
-    int[] pieceValues = { 0, 100, 300, 300, 500, 900, 10000 };
+    int[] pieceValues = { 0, 1, 3, 3, 5, 9, 10};
 
     public Move Think(Board board, Timer timer)
     {
@@ -23,13 +23,17 @@ public class MyBot : IChessBot
                 moveToPlay = move;
                 break;
             }
+            else
+            {
+
+            }
 
             if (move.IsCastles)
             {
                 moveToPlay = move;
+                positionImproved(board, move);
                 break;
             }
-
 
 
             // Find highest value capture
@@ -55,6 +59,12 @@ public class MyBot : IChessBot
         return isMate;
     }
 
+ //Does it improve my position
+ bool positionImproved(Board borad, Move move)
+ {
+    return true;
+ }
+    
 }
 
 
