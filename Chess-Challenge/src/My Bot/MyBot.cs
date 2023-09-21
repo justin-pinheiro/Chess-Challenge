@@ -1,15 +1,6 @@
 ﻿using ChessChallenge.API;
 using System;
 
-
-bool MoveIsCheckmate(Board board, Move move)
-{
-    board.MakeMove(move);
-    bool isMate = board.IsInCheckmate();
-    board.UndoMove(move);
-    return isMate;
-}
-
 public class MyBot : IChessBot
 {
     // Piece values: null, pawn, knight, bishop, rook, queen, king
@@ -33,6 +24,14 @@ public class MyBot : IChessBot
                 break;
             }
 
+            if (move.IsCastles)
+            {
+                moveToPlay = move;
+                break;
+            }
+
+
+
             // Find highest value capture
             Piece capturedPiece = board.GetPiece(move.TargetSquare);
             int capturedPieceValue = pieceValues[(int)capturedPiece.PieceType];
@@ -55,6 +54,7 @@ public class MyBot : IChessBot
         board.UndoMove(move);
         return isMate;
     }
+
 }
 
 
