@@ -85,6 +85,19 @@ public class MyBot : IChessBot
         return isMate;
     }
 
+ //Does it improve my position
+ bool positionImproved(Board borad, Move move)
+ {
+    return true;
+ }
+    
+}
+
+
+
+
+
+
     // Test if this move gives check
     bool MoveIsCheck(Board board, Move move)
     {
